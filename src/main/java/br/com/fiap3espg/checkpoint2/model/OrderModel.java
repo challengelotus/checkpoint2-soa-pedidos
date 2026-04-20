@@ -1,15 +1,17 @@
 package br.com.fiap3espg.checkpoint2.model;
 
+import java.time.LocalDate;
+import java.math.BigDecimal;
 import jakarta.persistence.Entity;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class OrderModel {
     private Long id;
