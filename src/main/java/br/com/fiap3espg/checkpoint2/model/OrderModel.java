@@ -9,4 +9,9 @@ public class OrderModel {
     private LocalDate orderDate;
     private BigDecimal totalValue;
 
+    public void prePersist() {
+        if (orderDate == null) {
+            orderDate = LocalDate.now();
+        }
+    }
 }
