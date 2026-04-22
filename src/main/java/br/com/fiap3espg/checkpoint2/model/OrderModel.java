@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class OrderModel {
     private LocalDate orderDate;
 
     @DecimalMin(value = "0.0", message = "O valor não pode ser negativo!")
+    @Positive
     private BigDecimal totalValue;
 
     public void prePersist() {
