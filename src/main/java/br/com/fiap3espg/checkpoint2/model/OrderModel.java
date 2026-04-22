@@ -3,6 +3,7 @@ package br.com.fiap3espg.checkpoint2.model;
 import java.time.LocalDate;
 import java.math.BigDecimal;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class OrderModel {
+    @Id
     private Long id;
     private String clientName;
     private LocalDate orderDate;
