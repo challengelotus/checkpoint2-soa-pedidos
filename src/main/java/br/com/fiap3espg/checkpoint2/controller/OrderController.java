@@ -32,7 +32,7 @@ public class OrderController {
         return orderService.readAllOrders();
     }
 
-    @GetMapping("/{code}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getOrder(@PathVariable Long id) {
         try {
             OrderModel orderModel = orderService.readOrderById(id);
@@ -42,7 +42,7 @@ public class OrderController {
         }
     }
 
-    @PutMapping("/{code}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateOrder(@PathVariable Long id, @RequestBody @Valid OrderModel order) {
         try {
             OrderModel orderModel = orderService.updateOrder(id, order);
