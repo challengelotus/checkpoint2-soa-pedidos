@@ -3,8 +3,8 @@ package br.com.fiap3espg.checkpoint2.service;
 import br.com.fiap3espg.checkpoint2.model.OrderModel;
 import br.com.fiap3espg.checkpoint2.repository.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -22,5 +22,23 @@ public class OrderService {
     public OrderModel readOrderById(Long id) {
         return orderRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Pedido não encontrado!"));
+    }
+
+    public OrderModel updateOrder(Long id, OrderModel order) {
+        return orderRepository.findById(id)
+                .map(existingOrder -> {
+                    existingOrder.setClientName(order.getClientName());
+                    existingOrder.setTotalValue(order.getTotalValue());
+                    return orderRepository.save(existingOrder);
+                })
+                .orElseThrow(() -> new EntityNotFoundException("Pedido não encontrado."));
+    }
+
+    public void deleteOrderById(Long id) {
+        try {
+            orderRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new EntityNotFoundException("Pedido não encontrado.");
+        }
     }
 }
