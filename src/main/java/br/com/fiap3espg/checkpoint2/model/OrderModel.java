@@ -2,10 +2,8 @@ package br.com.fiap3espg.checkpoint2.model;
 
 import java.time.LocalDate;
 import java.math.BigDecimal;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
@@ -32,6 +30,7 @@ public class OrderModel {
     @Positive
     private BigDecimal totalValue;
 
+    @PrePersist
     public void prePersist() {
         if (orderDate == null) {
             orderDate = LocalDate.now();
