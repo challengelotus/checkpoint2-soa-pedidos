@@ -17,7 +17,7 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public List<OrderModel> readAllOders() {
+    public List<OrderModel> readAllOrders() {
         return orderRepository.findAll();
     }
 

@@ -29,7 +29,7 @@ public class OrderController {
 
     @GetMapping
     public List<OrderModel> readOrders(){
-        return orderService.readAllOders();
+        return orderService.readAllOrders();
     }
 
     @GetMapping("/{code}")
