@@ -3,12 +3,14 @@ package br.com.fiap3espg.checkpoint2.service;
 import br.com.fiap3espg.checkpoint2.model.OrderModel;
 import br.com.fiap3espg.checkpoint2.repository.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class OrderService {
+    @Autowired
     private OrderRepository orderRepository;
 
     public OrderModel createOrder(OrderModel order) {
