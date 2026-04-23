@@ -107,7 +107,7 @@ http://localhost:8080/orders
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/challengelotus/checkpoint2-soa-pedidos.git
 
 # Entrar na pasta do projeto
 cd checkpoint2
